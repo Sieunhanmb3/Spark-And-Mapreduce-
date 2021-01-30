@@ -20,44 +20,51 @@
 RDDs có thể chứa bất kỳ kiểu dữ liệu nào của Python, Java, hoặc đối tượng Scala, bao gồm các kiểu dữ liệu do người dùng định nghĩa.<br> 
 Có thể tạo ra RDD từ một tập hợp dữ liệu có sẵn trong ngôn ngữ sử dụng như Java, Python, Scala hoặc lấy từ dataset hệ thống lưu trữ bên ngoài như HDFS, Hbase, các cơ sở dữ liệu quan hệ. <br>
 <b>Các loại RDD</b><br>
--	# , Apache, Spark , ... , processing (kiểu chuỗi)<br>
--	(for, 12) ; (Spark, 21), ... ,(the, 31) (Kiểu cặp)<br>
-•	Các RDD biểu diễn một tập hợp cố định, đã được phân vùng các record để có thể xử lý song song.<br>
-•	Các record trong RDD có thể là đối tượng Java, Scale hay Python tùy lập trình viên chọn. <br>
-•	RDD API có thể được sử dụng trong Python, Scala hay Java:<br>
-- <b>Một số transformation:</b><br>
-•	<b>distinct:</b> loại bỏ trùng lắp trong RDD<br>
-•	<b>filter:</b> tương đương với việc sử dụng ở trong SQL – tìm các record trong RDD xem những phần tử nào thỏa điều kiện. Có thể cung cấp một hàm phức tạp sử dụng để lọc các record cần thiết <br>
-•	<b>map:</b> thực hiện một công việc nào đó trên toàn bộ RDD. Trong Python sử dụng lambda với từng phần tử để truyền vào map.<br>
-•	<b>flatMap:</b> cung cấp một hàm đơn giản hơn hàm map. Yêu cầu output của map phải là một cấu trúc có thể lặp và mở rộng được.<br>
-•	<b>sortBy:</b> mô tả một hàm để trích xuất dữ liệu từ các đối tượng của RDD và thực hiện sắp xếp được từ đó.<br>
-•	<b>randomSplit:</b> nhận một mảng trọng số và tạo một random seed, tách các RDD thành một mảng các RDD có số lượng chia theo trọng số.<br>
-- <b>Một số action:</b><br>
+
+-Apache, Spark , ... , processing (kiểu chuỗi)<br>
+-(for, 12) ; (Spark, 21), ... ,(the, 31) (Kiểu cặp)<br>
+
+  Các RDD biểu diễn một tập hợp cố định, đã được phân vùng các record để có thể xử lý song song.<br>
+  Các record trong RDD có thể là đối tượng Java, Scale hay Python tùy lập trình viên chọn. <br>
+  RDD API có thể được sử dụng trong Python, Scala hay Java:<br>
+  
+<b>Một số transformation:</b><br>
+  •	<b>distinct:</b> loại bỏ trùng lắp trong RDD<br>
+  •	<b>filter:</b> tương đương với việc sử dụng ở trong SQL – tìm các record trong RDD xem những phần tử nào thỏa điều kiện. Có thể cung cấp một hàm phức tạp sử dụng để lọc các record cần thiết <br>
+  •	<b>map:</b> thực hiện một công việc nào đó trên toàn bộ RDD. Trong Python sử dụng lambda với từng phần tử để truyền vào map.<br>
+  •	<b>flatMap:</b> cung cấp một hàm đơn giản hơn hàm map. Yêu cầu output của map phải là một cấu trúc có thể lặp và mở rộng được.<br>
+  •	<b>sortBy:</b> mô tả một hàm để trích xuất dữ liệu từ các đối tượng của RDD và thực hiện sắp xếp được từ đó.<br>
+  •	<b>randomSplit:</b> nhận một mảng trọng số và tạo một random seed, tách các RDD thành một mảng các RDD có số lượng chia theo trọng số.<br>
+
+<b>Một số action:</b><br>
 Action thực thi ngay các transformation đã được thiết lập để thu thập dữ liệu về driver để xử lý hoặc ghi dữ liệu xuống các công cụ lưu trữ.<br>
-•	<b>reduce:</b> thực hiện hàm reduce trên RDD để thu về 1 giá trị duy nhất.<br>
-•	<b>count:</b> đếm số dòng trong RDD.<br>
-•	<b>countApprox:</b> phiên bản đếm xấp xỉ của count, nhưng phải cung cấp timeout vì có thể không nhận được kết quả.<br>
-•	<b>countByValue:</b> đếm số giá trị của RDD.<br>
-chỉ sử dụng nếu map kết quả nhỏ vì tất cả dữ liệu sẽ được load lên memory của driver để tính toán<br>
-chỉ nên sử dụng trong tình huống số dòng nhỏ và số lượng item khác nhau cũng nhỏ.<br>
-•	<b>countApproxDistinct:</b> đếm xấp xỉ các giá trị khác nhau.<br>
-•	<b>countByValueApprox:</b> đếm xấp xỉ các giá trị.<br>
-•	<b>first:</b> lấy giá trị đầu tiên của dataset.<br>
-•	<b>max và min:</b> lần lượt lấy giá trị lớn nhất và nhỏ nhất của dataset.<br>
-•	<b>take và các method tương tự:</b> lấy một lượng giá trị từ trong RDD. take sẽ trước hết scan qua một partition và sử dụng kết quả để dự đoán số lượng partition cần phải lấy thêm để thỏa mãn số lượng lấy.<br>
-•	<b>top và takeOrdered:</b> top sẽ hiệu quả hơn takeOrdered vì top lấy các giá trị đầu tiên được sắp xếp ngầm trong RDD.<br>
-•	<b>takeSamples:</b> lấy một lượng giá trị ngẫu nhiên trong RDD.<br>
+  •	<b>reduce:</b> thực hiện hàm reduce trên RDD để thu về 1 giá trị duy nhất.<br>
+  •	<b>count:</b> đếm số dòng trong RDD.<br>
+  •	<b>countApprox:</b> phiên bản đếm xấp xỉ của count, nhưng phải cung cấp timeout vì có thể không nhận được kết quả.<br>
+  •	<b>countByValue:</b> đếm số giá trị của RDD.<br>
+    chỉ sử dụng nếu map kết quả nhỏ vì tất cả dữ liệu sẽ được load lên memory của driver để tính toán<br>
+    chỉ nên sử dụng trong tình huống số dòng nhỏ và số lượng item khác nhau cũng nhỏ.<br>
+  •	<b>countApproxDistinct:</b> đếm xấp xỉ các giá trị khác nhau.<br>
+  •	<b>countByValueApprox:</b> đếm xấp xỉ các giá trị.<br>
+  •	<b>first:</b> lấy giá trị đầu tiên của dataset.<br>
+  •	<b>max và min:</b> lần lượt lấy giá trị lớn nhất và nhỏ nhất của dataset.<br>
+  •	<b>take và các method tương tự:</b> lấy một lượng giá trị từ trong RDD. take sẽ trước hết scan qua một partition và sử dụng kết quả để dự đoán số lượng partition cần phải lấy thêm để thỏa mãn số lượng lấy.<br>
+  •	<b>top và takeOrdered:</b> top sẽ hiệu quả hơn takeOrdered vì top lấy các giá trị đầu tiên được sắp xếp ngầm trong RDD.<br>
+  •	<b>takeSamples:</b> lấy một lượng giá trị ngẫu nhiên trong RDD.<br>
  
 <pre><b>Spark Dataframe<b></pre>
+
 <b>DataFrame</b> là một API bậc cao hơn RDD được Spark giới thiệu vào năm 2013 (<b>từ Apache Spark 1.3</b>). Tương tự như RDD, dữ liệu trong DataFrame cũng được quản lý theo <b>kiểu phân tán và không thể thay đổi (immutable distributed)</b>. Tuy nhiên dữ liệu này được sắp sếp theo các cột, tương tự như trong <b>Relation Database</b>.<br>
 DataFrame được phát triển để giúp người dùng có thể dễ dàng thực hiện các thao tác xử lý dữ liệu cũng như làm tăng đáng kể hiệu quả xử lý của hệ thống.<br>
 Khi sử dụng DataFrame API, chúng ta gọi các hàm để trích xuất kết quả mong muốn và Spark sẽ tự động tiến hành các thuật toán xử lý. Tuy nhiên ở bước cuối cùng thì các thuật toán này vẫn được chạy trên RDD mặc dù người dùng chỉ tương tác với DataFrame.<br>
+
 <b>Ưu điểm của Spark Datafram :</b><br>
-•	Giống như viết SQL, đầy đủ chức năng như select, where ... đặc biệt là join với các DataFrame khác.<br>
-•	Sử dụng các method như filter, select để trích xuất dữ liệu theo cột, hàng.<br>
-•	Xử gọn các loại data như Log ... với groupBy. <br>
-•	Thêm 1 cột dễ dàng với UDF(User Defined Function).<br>
-•	Giống như SQL, Spark DataFrame đã hỗ trợ Pivot (Spark 1.6 trở lên) rất hữu ích cho việc lập bảng biểu, báo cáo.<br>
+  •	Giống như viết SQL, đầy đủ chức năng như select, where ... đặc biệt là join với các DataFrame khác.<br>
+  •	Sử dụng các method như filter, select để trích xuất dữ liệu theo cột, hàng.<br>
+  •	Xử gọn các loại data như Log ... với groupBy. <br>
+  •	Thêm 1 cột dễ dàng với UDF(User Defined Function).<br>
+  •	Giống như SQL, Spark DataFrame đã hỗ trợ Pivot (Spark 1.6 trở lên) rất hữu ích cho việc lập bảng biểu, báo cáo.<br>
+  
 <b>sources</b> <br>
 https://laptrinh.vn/books/apache-spark/page/apache-spark-rdd<br>
 https://mallikarjuna_g.gitbooks.io/spark/content/spark-properties.html<br>
