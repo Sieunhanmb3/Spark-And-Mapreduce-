@@ -52,7 +52,7 @@ Action thực thi ngay các transformation đã được thiết lập để thu
   •	<b>top và takeOrdered:</b> top sẽ hiệu quả hơn takeOrdered vì top lấy các giá trị đầu tiên được sắp xếp ngầm trong RDD.<br>
   •	<b>takeSamples:</b> lấy một lượng giá trị ngẫu nhiên trong RDD.<br>
  
-<pre><b>Spark Dataframe<b></pre>
+<pre><b>Spark Dataframe</b></pre>
 
 <b>DataFrame</b> là một API bậc cao hơn RDD được Spark giới thiệu vào năm 2013 (<b>từ Apache Spark 1.3</b>). Tương tự như RDD, dữ liệu trong DataFrame cũng được quản lý theo <b>kiểu phân tán và không thể thay đổi (immutable distributed)</b>. Tuy nhiên dữ liệu này được sắp sếp theo các cột, tương tự như trong <b>Relation Database</b>.<br>
 DataFrame được phát triển để giúp người dùng có thể dễ dàng thực hiện các thao tác xử lý dữ liệu cũng như làm tăng đáng kể hiệu quả xử lý của hệ thống.<br>
