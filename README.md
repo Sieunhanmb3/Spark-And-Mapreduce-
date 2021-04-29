@@ -71,6 +71,6 @@ https://mallikarjuna_g.gitbooks.io/spark/content/spark-properties.html<br>
 http://itechseeker.com<br>
 https://codetudau.com/xu-ly-du-lieu-voi-spark-dataframe/index.html<br>
 https://helpex.vn/article/huong-dan-pyspark-dataframe-gioi-thieu-ve-dataframes-5c6b21e6ae03f628d053c29e<br>
-
+https://towardsdatascience.com/the-most-complete-guide-to-pyspark-dataframes-2702c343b2e8<br>
 
 
