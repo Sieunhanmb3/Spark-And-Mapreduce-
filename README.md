@@ -1,4 +1,4 @@
-# Spark-And-Mapreduce-
+# Spark
 <pre><b>Apache spark (Spark)</b></pre>
 <b>Apache Spark</b> Là 1 hệ thống được dùng để xử lý các vấn đề về dữ liệu lớn. Matei Zaharia, cha đẻ của Spark, sử dụng Hadoop từ những ngày đầu. Đến năm 2009 ông viết Apache Spark để giải quyết những bài toán học máy ở đại học UC Berkely vì Hadoop MapReduce hoạt động không hiệu quả cho những bài toán này. Rất sớm sau đó ông nhận ra rằng Spark không chỉ hữu ích cho học máy mà còn cho cả việc xử lý luồng dữ liệu hoàn chỉnh.<br>
 
@@ -64,7 +64,22 @@ Khi sử dụng DataFrame API, chúng ta gọi các hàm để trích xuất k�
   •	Xử gọn các loại data như Log ... với groupBy. <br>
   •	Thêm 1 cột dễ dàng với UDF(User Defined Function).<br>
   •	Giống như SQL, Spark DataFrame đã hỗ trợ Pivot (Spark 1.6 trở lên) rất hữu ích cho việc lập bảng biểu, báo cáo.<br>
-  
+
+<pre><b>Spark MachineLearning</b></pre>
+
+<b>MachineLearning</b> - học máy - <br> là một lĩnh vực nhỏ của Khoa Học Máy Tính, nó có khả năng tự học hỏi dựa trên dữ liệu đưa vào mà không cần phải được lập trình cụ thể. Cốt lõi của nó là các thuật toán tự học phát triển bằng cách liên tục cải tiến công việc được giao. Đối với thuật toán học máy càng nhiều dữ liệu càng tốt.
+
+Trong <b>pyspark.ml</b> bao gồm 2 class cơ bản là <b>Transformer</b> cho phép biến đổi dữ liệu và <b>Estimator</b> ước lượng mô hình dự báo.
+
+   • Transfromer sử dụng hàm .transform() nhận đầu vào là 1 DataFrame và trả ra một DataFrame mới có các trường đã biến đổi theo Transform. Các bạn sẽ hiểu hơn qua thực hành ở ví dụ bên dưới.
+
+   • Estimator sử dụng hàm .fit() để huấn luyện model. Chúng cũng nhận đầu vào là một DataFrame nhưng kết quả được trả ở đầu ra là 1 model object. Hiện tại spark hỗ trợ khá nhiều các lớp model cơ bản trong machine learning. Các lớp model xuất hiện trong Esimator bao gồm:
+
+Đối với bài toán phân loại: LogisticRegression, DecisionTreeClassifier, RandomForestModel, GBTClassifier (gradient bosting tree), MultilayerPerceptronClassifier, LinearSVC (Linear Support Vector Machine), NaiveBayes.
+
+Đối với bài toán dự báo: GeneralizedLinearRegression, DecisionTreeRegressor, RandomForestRegressor, GBTRegressor (gradient boosting Tree), AFTSurvivalRegression (Hồi qui đối với các lớp bài toán estimate survival).
+
+
 <b>sources</b> <br>
 https://laptrinh.vn/books/apache-spark/page/apache-spark-rdd<br>
 https://mallikarjuna_g.gitbooks.io/spark/content/spark-properties.html<br>
@@ -72,5 +87,6 @@ http://itechseeker.com<br>
 https://codetudau.com/xu-ly-du-lieu-voi-spark-dataframe/index.html<br>
 https://helpex.vn/article/huong-dan-pyspark-dataframe-gioi-thieu-ve-dataframes-5c6b21e6ae03f628d053c29e<br>
 https://towardsdatascience.com/the-most-complete-guide-to-pyspark-dataframes-2702c343b2e8<br>
-
+https://www.udacity.com/blog/2020/08/machine-learning-for-big-data.html<br>
+https://phamdinhkhanh.github.io/2019/07/15/PySparkSQL.html<br>
 
